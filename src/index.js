@@ -15,9 +15,9 @@ const {deleteAd, updateAd} = require('./database/ads');
 const app = express();
 
 // defining an array to work as the database (temporary solution)
-// const ads = [
-//   {title: 'Hello, world (again)!'}
-// ];
+const ads = [
+  {title: 'Hello, world (again)!'}
+];
 
 // adding Helmet to enhance your API's security
 app.use(helmet());
@@ -57,7 +57,7 @@ app.put('/:id', async (req, res) => {
 
 // start the in-memory MongoDB instance
 startDatabase().then(async () => {
-    await insertAd({title: 'Hello, now from the in-memory database!'});
+    await insertAd({title: 'Hello, now from the in-memory database!', Pokemon: 'Charmander', Type: 'Fire'});
 
     
 // starting the server
